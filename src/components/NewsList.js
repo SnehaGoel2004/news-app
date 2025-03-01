@@ -1,7 +1,11 @@
 // Components/NewsList.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import NewsItem from "./NewsItem"; // Ensure this component is created to display individual news items
+ // Ensure this component is created to display individual news items
+
+
+const API_URL = process.env.REACT_APP_NEWS_API_URL; // External News API
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL; // Your deployed backend
 
 
 const NewsList = () => {
