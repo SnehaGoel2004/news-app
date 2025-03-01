@@ -9,7 +9,7 @@ const NewsList = () => {
 
   const fetchLatestNews = async () => {
     try {
-      const response = await axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=deb918d0547b4a479442c7c9824e04c2');
+      const response = await axios.get(API_URL);
       return response.data.articles; // Return the articles
     } catch (error) {
       console.error('Error fetching news:', error);
@@ -18,7 +18,7 @@ const NewsList = () => {
 
   const saveNewsToDatabase = async (newsData) => {
     try {
-      const response = await axios.post('http://localhost:3002/api/news', newsData);
+      const response = await axios.post(`${BACKEND_URL}/api/news`, { articles: newsData });
       console.log('News saved:', response.data);
     } catch (error) {
       console.error('Error saving news:', error);
